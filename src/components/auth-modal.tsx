@@ -94,9 +94,7 @@ export function AuthModal() {
             e.preventDefault()
             setIsOpen(false) // Close modal on submit
           }} className="space-y-4">
-            <p className="text-sm text-muted-foreground">
-              We've sent a 6-digit passcode to {email}
-            </p>
+            <p>We&apos;ve sent a 6-digit passcode to {email}</p>
             
             <div className="space-y-2">
               <label className="block text-sm font-medium">Passcode</label>

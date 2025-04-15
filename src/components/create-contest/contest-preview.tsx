@@ -13,7 +13,7 @@ export function ContestPreview() {
     name: string
   }
 
-  const getCategoryName = (id: string) => {
+  const getCategoryName = (_id: string) => {
     const categories = [
       { id: 'logo', name: 'Logo Design' },
       { id: 'web', name: 'Website Design' },
