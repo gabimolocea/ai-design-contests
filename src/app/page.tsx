@@ -1,68 +1,56 @@
-import { Navbar } from "@/components/ui/navbar";
-import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
-      <Navbar />
-
-      {/* Main content container with centered alignment */}
-      <main className="flex flex-col items-center">
-        {/* Hero Section */}
-        <section className="w-full py-12 md:py-24">
-          <div className="container mx-auto max-w-7xl px-4">
-            <div className="mx-auto max-w-3xl text-center">
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-                Get Custom Designs from Creative Professionals
-              </h1>
-              <p className="mt-6 text-lg text-muted-foreground">
-                Launch a contest and receive dozens of designs to choose from
-              </p>
-              <Button size="lg" className="mt-8">
-                Start a Contest
-              </Button>
-            </div>
+    <main className="container flex min-h-[70vh] flex-col items-center justify-center px-4 py-8 mx-auto max-w-[1080]">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 [&>*:first-child]:order-2 md:[&>*:first-child]:order-1 [&>*:last-child]:order-1 md:[&>*:last-child]:order-2">
+        {/* Left Column */}
+        <div className="flex flex-col justify-center space-y-6 text-center md:text-left md:order-1">
+          
+          {/* Title with Gradient */}
+          <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl">
+  <span className="title-line">Get the perfect<br/></span>
+  <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+    custom design.
+  </span>
+</h1>
+          
+          {/* Subtitle */}
+          <p className="text-lg text-muted-foreground md:text-xl">
+            Set up a contest page, invite designers and recieve thousands of designs. Create a creative contest today.
+          </p>
+          
+          {/* CTA Button */}
+          <div className="flex justify-center md:justify-normal gap-4 pt-4">
+          <div className="flex justify-center md:justify-normal gap-4 pt-4">
+            <Button size="xl" asChild className="text-lg px-8 py-6">
+              <Link href="/create-contest">
+                Create your first contest
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
           </div>
-        </section>
-
-        {/* How It Works Section */}
-        <section className="w-full py-12 bg-muted/50">
-          <div className="container mx-auto max-w-7xl px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
-            <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-              {[
-                { 
-                  title: "Start Your Contest", 
-                  description: "Describe your design needs in minutes" 
-                },
-                { 
-                  title: "Receive Designs", 
-                  description: "Get dozens of concepts from our community" 
-                },
-                { 
-                  title: "Pick Your Favorite", 
-                  description: "Collaborate with designers to perfect your design" 
-                },
-              ].map((step, index) => (
-                <Card key={index} className="h-full">
-                  <CardHeader>
-                    <div className="flex items-center gap-2">
-                      <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground">
-                        {index + 1}
-                      </div>
-                      <CardTitle>{step.title}</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{step.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
           </div>
-        </section>
-      </main>
-    </div>
-  );
+        </div>
+
+        {/* Right Column - Video */}
+        <div className="flex items-center justify-center">
+          <div className="w-full max-w-[620px] max-h-[663px] flex-shrink-[0] overflow-hidden position-relative animate-float">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="h-full w-full object-fit"
+            >
+              <source src="https://cdn.lu.ma/landing/phone-light.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </div>
+    </main>
+  )
 }

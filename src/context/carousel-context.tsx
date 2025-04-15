@@ -1,3 +1,4 @@
+// context/carousel-context.tsx
 'use client'
 
 import { createContext, useContext, useState } from 'react'
@@ -10,8 +11,8 @@ type CarouselContextType = {
 const CarouselContext = createContext<CarouselContextType | undefined>(undefined)
 
 export function CarouselProvider({ children }: { children: React.ReactNode }) {
-  const [titleColor, setTitleColor] = useState('text-blue-600')
-
+  const [titleColor, setTitleColor] = useState('text-blue-600') // Default color
+  
   return (
     <CarouselContext.Provider value={{ titleColor, setTitleColor }}>
       {children}

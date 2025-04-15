@@ -1,10 +1,10 @@
-// app/layout.tsx
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { CarouselProvider } from '@/context/carousel-context'
+import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/ui/navbar'
-// import { Footer } from '@/components/ui/footer' // Optional footer component
+import { LumaStyleBackground } from '@/components/background'
+import { FormProvider } from '@/context/form-context'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,16 +20,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <CarouselProvider>
-          <div className="flex min-h-screen flex-col">
-            <Navbar />
-            <main className="flex-1">
-              {children}
-            </main>
-         
-          </div>
-        </CarouselProvider>
+      <body className={`${inter.className} flex min-h-screen flex-col relative bg-background`}>
+        <FormProvider>
+          <LumaStyleBackground />
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </FormProvider>
       </body>
     </html>
   )
