@@ -49,7 +49,7 @@ function Carousel({
   setApi,
   plugins,
   className,
-  onIndexChange,
+ // onIndexChange,
   children,
   ...props
 }: React.ComponentProps<"div"> & CarouselProps) {

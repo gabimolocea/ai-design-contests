@@ -13,15 +13,7 @@ export function ContestPreview() {
     name: string
   }
 
-  const getCategoryName = (_id: string) => {
-    const categories = [
-      { id: 'logo', name: 'Logo Design' },
-      { id: 'web', name: 'Website Design' },
-      { id: 'branding', name: 'Branding' },
-      { id: 'packaging', name: 'Packaging Design' }
-    ]
-    return categories.find(c => c.id === formData.contestType)?.name || 'Not selected'
-  }
+  
 
   const handleSubmit = async () => {
     // Add your submission logic here
@@ -62,7 +54,7 @@ export function ContestPreview() {
               <CardTitle>Category</CardTitle>
             </CardHeader>
             <CardContent>
-              <p>{getCategoryName(formData.contestType)}</p>
+             
             </CardContent>
           </Card>
 

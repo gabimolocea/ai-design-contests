@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
 import { AuthModal } from '@/components/auth-modal'
 
 export function Navbar() {
