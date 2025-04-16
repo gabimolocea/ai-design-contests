@@ -1,3 +1,5 @@
+"use client";
+
 import Link from 'next/link'
 import { Twitter, Instagram, Linkedin } from 'lucide-react'
 
@@ -10,7 +12,7 @@ export function Footer() {
           {/* Primary Menu - Left-aligned on all screens */}
           <div className="flex flex-wrap justify-start gap-6">
             {[
-              { name: "What's New", href: "#" },
+              { name: "What's New", href: "/whats-new" },
               { name: "Discover", href: "/discover" }, // Updated link
               { name: "Pricing", href: "#" },
               { name: "Help", href: "#" },

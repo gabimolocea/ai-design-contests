@@ -14,7 +14,7 @@ export function Navbar() {
 
         {/* Right side - Actions */}
         <div className="flex items-center gap-4">
-          <Link href="#explore" className="text-sm font-medium hover:text-primary">
+          <Link href="/contests" className="text-sm font-medium hover:text-primary">
             Explore Contests
           </Link>
           <AuthModal />
