@@ -9,13 +9,18 @@ export function Footer() {
        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           {/* Primary Menu - Left-aligned on all screens */}
           <div className="flex flex-wrap justify-start gap-6">
-            {['What\'s New', 'Discover', 'Pricing', 'Help'].map((item) => (
+            {[
+              { name: "What's New", href: "#" },
+              { name: "Discover", href: "/discover" }, // Updated link
+              { name: "Pricing", href: "#" },
+              { name: "Help", href: "#" },
+            ].map((item) => (
               <Link
-                key={item}
-                href="#"
+                key={item.name}
+                href={item.href}
                 className="text-sm font-medium hover:text-primary transition-colors"
               >
-                {item}
+                {item.name}
               </Link>
             ))}
           </div>
