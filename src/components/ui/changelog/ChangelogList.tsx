@@ -24,10 +24,10 @@ export function ChangelogList({ data }: { data: ChangelogEntry[] }) {
 
       {filteredData.map((item, index) => (
         <ChangelogItem
-          key={item.id}
-          item={item}
-          showSeparator={index < filteredData.length - 1}
-        />
+        key={item.id}
+        entry={item}
+        showSeparator={index < filteredData.length - 1}
+      />
       ))}
     </div>
   );
