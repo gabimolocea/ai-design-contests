@@ -6,7 +6,7 @@ export default async function ContestsPage() {
   const contests = await getContestData();
 
   return (
-    <div className="w-full px-4 py-8">
+    <div className="mx-auto max-w-[1080] px-4 py-8">
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight">Design Contests</h1>
         <p className="text-muted-foreground mt-2">
