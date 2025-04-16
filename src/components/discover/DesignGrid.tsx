@@ -1,4 +1,4 @@
-import { Card } from "@/components/ui/card";
+
 import DesignCard from "./DesignCard";
 import { Design } from "./types";
 

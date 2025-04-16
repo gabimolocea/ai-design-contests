@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { Mail, Github } from 'lucide-react'
+import { Github } from 'lucide-react'
 
 export function AuthModal() {
   const [email, setEmail] = useState('')
@@ -69,7 +69,7 @@ export function AuthModal() {
                 required
               />
               <p className="text-xs text-muted-foreground px-1">
-                We'll email you a magic link for a password-free sign in.
+                We&apos;ll email you a magic link for a password-free sign in.
               </p>
             </div>
             <Button 
