@@ -1,4 +1,6 @@
-import type { Metadata } from "next";
+'use client';
+
+// Removed unused Metadata import
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/footer";
@@ -9,10 +11,7 @@ import { AuthProvider } from "@/context/AuthContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "DesignContest - Crowdsource Creative Designs",
-  description: "Get custom designs from our global community of creative professionals",
-};
+// Removed metadata export as it may not be supported
 
 export default function RootLayout({
   children,
