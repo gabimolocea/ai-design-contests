@@ -55,4 +55,4 @@ out/
 # System files
 .DS_Store
 
-/.env.local
+/.env.localkey.json
