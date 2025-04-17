@@ -1,5 +1,6 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { FormProvider } from '@/context/form-context'
 import { useFormContext } from '@/context/form-context'
 import { Progress } from '@/components/ui/progress'
@@ -7,6 +8,7 @@ import { ContestDetails } from '@/components/create-contest/contest-details'
 import { ContestCategory } from '@/components/create-contest/contest-category'
 import { ContestBudget } from '@/components/create-contest/contest-budget'
 import { ContestPreview } from '@/components/create-contest/contest-preview'
+import { Button } from '@/components/ui/button'
 
 export default function CreateContestPage() {
   const steps = [
@@ -25,12 +27,20 @@ export default function CreateContestPage() {
 
 function CreateContestContent({ steps }: { steps: { id: number; name: string }[] }) {
   const { currentStep } = useFormContext()
+  const router = useRouter() // Use Next.js router for navigation
 
   const progressValue = (currentStep / steps.length) * 100
 
   return (
     <div className="container mx-auto py-12 px-4">
       <div className="max-w-4xl mx-auto">
+        {/* Back Button */}
+        <div className="mb-4">
+          <Button variant="secondary" onClick={() => router.back()}>
+            ← Back
+          </Button>
+        </div>
+
         {/* Progress bar */}
         <div className="mb-8">
           <Progress value={progressValue} className="h-2" />

@@ -4,16 +4,18 @@ import { useAuth } from '@/context/AuthContext';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import ProtectedRoute from '@/components/ProtectedRoute';
 
 export default function DashboardPage() {
   const { user } = useAuth();
 
   return (
-    <div className="container py-8">
+    <ProtectedRoute>
+    <div className="container py-8 mx-auto max-w-[1080] px-4">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-2xl font-bold">Welcome back, {user?.displayName || 'User'}!</h1>
         <Button asChild>
-          <Link href="/contests/new">Start New Contest</Link>
+          <Link href="/create-contest">Start New Contest</Link>
         </Button>
       </div>
 
@@ -74,5 +76,6 @@ export default function DashboardPage() {
         </div>
       </div>
     </div>
+    </ProtectedRoute>
   );
 }
