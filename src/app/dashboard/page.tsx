@@ -64,11 +64,11 @@ export default function DashboardPage() {
         <div className="space-y-4">
           {/* Example activity items */}
           <div className="border rounded-lg p-4">
-            <p>Your submission for "Logo Design Contest" received 5 stars</p>
+            <p>Your submission for &quot;Logo Design Contest&quot; received 5 stars</p>
             <p className="text-sm text-muted-foreground">2 hours ago</p>
           </div>
           <div className="border rounded-lg p-4">
-            <p>New contest "Website Redesign" matches your skills</p>
+            <p>New contest &quot;Website Redesign&quot; matches your skills</p>
             <p className="text-sm text-muted-foreground">1 day ago</p>
           </div>
         </div>
