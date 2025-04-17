@@ -58,7 +58,9 @@ export function AuthModal({
       console.log('Registration successful:', user);
       if (onSuccess) onSuccess(); // Trigger success callback
       closeModal(); // Close the modal
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
+      
       // Handle Firebase-specific errors
       if (err.code === 'auth/email-already-in-use') {
         setError('This email is already registered. Redirecting to login...');
@@ -83,6 +85,7 @@ export function AuthModal({
       console.log('Login successful:', userCredential.user);
       if (onSuccess) onSuccess(); // Trigger success callback
       closeModal(); // Close the modal
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       setError(err.message || 'An unknown error occurred.');
     } finally {
@@ -113,6 +116,7 @@ export function AuthModal({
         if (onSuccess) onSuccess(); // Trigger success callback
         closeModal(); // Close the modal
       }
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       setError(err.message || 'An unknown error occurred.');
     } finally {
@@ -138,6 +142,7 @@ export function AuthModal({
       console.log('Role selection successful for Google user:', googleUser);
       if (onSuccess) onSuccess(); // Trigger success callback
       closeModal(); // Close the modal
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       setError(err.message || 'An unknown error occurred.');
     } finally {
