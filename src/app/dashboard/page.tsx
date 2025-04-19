@@ -1,10 +1,10 @@
 'use client';
 
 import { useAuth } from '@/context/AuthContext';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Card, CardHeader, CardTitle, CardContent } from '@/app/components/ui/card';
+import { Button } from '@/app/components/ui/button';
 import Link from 'next/link';
-import ProtectedRoute from '@/components/ProtectedRoute';
+import ProtectedRoute from '@/app/components/ProtectedRoute';
 
 export default function DashboardPage() {
   const { user } = useAuth();

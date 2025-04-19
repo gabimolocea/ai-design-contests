@@ -1,4 +1,5 @@
 import { Contest } from "@/app/components/ui/contest/types";
+
 export async function getContestData(): Promise<Contest[]> {
   // In a real app, fetch from your API
   return [

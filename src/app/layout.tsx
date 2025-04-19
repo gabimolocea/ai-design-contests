@@ -3,9 +3,9 @@
 // Removed unused Metadata import
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Footer } from "@/components/footer";
-import { Navbar } from "@/components/ui/navbar";
-import { LumaStyleBackground } from "@/components/background";
+import { Footer } from "@/app/components/footer";
+import { Navbar } from "@/app/components/ui/navbar";
+import { LumaStyleBackground } from "@/app/components/background";
 import { FormProvider } from "@/context/form-context";
 import { AuthProvider } from "@/context/AuthContext";
 

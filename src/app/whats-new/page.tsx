@@ -1,5 +1,5 @@
-import { ChangelogList } from "@/components/ui/changelog/ChangelogList";
-import { getChangelogData } from "@/lib/changelog-data";
+import { ChangelogList } from "@/app/components/ui/changelog/ChangelogList";
+import { getChangelogData } from "lib/changelog-data";
 
 export default async function WhatsNewPage() {
   const changelogData = await getChangelogData();

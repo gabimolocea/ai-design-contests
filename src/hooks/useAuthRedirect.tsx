@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "@/lib/firebase/config";
+import { auth } from "lib/firebase/config";
 
 export function useAuthRedirect(redirectTo: string) {
   const router = useRouter();

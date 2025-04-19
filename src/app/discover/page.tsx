@@ -1,6 +1,6 @@
-import { Design } from "@/components/discover/types";
-import DesignGrid from "@/components/discover/DesignGrid";
-import CategoriesCarousel from "@/components/discover/CategoriesCarousel";
+import { Design } from "@/app/components/discover/types";
+import DesignGrid from "@/app/components/discover/DesignGrid";
+import CategoriesCarousel from "@/app/components/discover/CategoriesCarousel";
 
 // Mock data - replace with your actual data source
 const getDesigns = async (): Promise<Design[]> => {

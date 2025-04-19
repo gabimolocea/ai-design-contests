@@ -1,6 +1,6 @@
-import { ContestList } from "@/components/ui/contest/ContestList";
-import { ContestTabs } from "@/components/ui/contest/ContestTabs";
-import { getContestData } from "@/lib/contest-data";
+import { ContestList } from "@/app/components/ui/contest/ContestList";
+import { ContestTabs } from "@/app/components/ui/contest/ContestTabs";
+import { getContestData } from "lib/contest-data";
 
 export default async function ContestsPage() {
   const contests = await getContestData();

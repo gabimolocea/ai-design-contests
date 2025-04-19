@@ -3,12 +3,12 @@
 import { useRouter } from 'next/navigation'
 import { FormProvider } from '@/context/form-context'
 import { useFormContext } from '@/context/form-context'
-import { Progress } from '@/components/ui/progress'
-import { ContestDetails } from '@/components/create-contest/contest-details'
-import { ContestCategory } from '@/components/create-contest/contest-category'
-import { ContestBudget } from '@/components/create-contest/contest-budget'
-import { ContestPreview } from '@/components/create-contest/contest-preview'
-import { Button } from '@/components/ui/button'
+import { Progress } from '@/app/components/ui/progress'
+import { ContestDetails } from '@/app/components/create-contest/contest-details'
+import { ContestCategory } from '@/app/components/create-contest/contest-category'
+import { ContestBudget } from '@/app/components/create-contest/contest-budget'
+import { ContestPreview } from '@/app/components/create-contest/contest-preview'
+import { Button } from '@/app/components/ui/button'
 
 export default function CreateContestPage() {
   const steps = [
