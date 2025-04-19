@@ -13,9 +13,14 @@ const categories = [
 export function ContestCategory() {
   const { formData, setFormData, setCurrentStep } = useFormContext()
 
+  const handleCategoryChange = (categoryId: string, categoryName: string) => {
+    // Update both contestType and category in formData
+    setFormData({ ...formData, contestType: categoryId, category: categoryName })
+  }
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setCurrentStep(3)
+    setCurrentStep(3) // Move to the next step
   }
 
   return (
@@ -26,7 +31,7 @@ export function ContestCategory() {
         {categories.map((category) => (
           <div
             key={category.id}
-            onClick={() => setFormData({...formData, contestType: category.id})}
+            onClick={() => handleCategoryChange(category.id, category.name)} // Update both fields
             className={`p-6 border rounded-lg cursor-pointer transition-colors ${
               formData.contestType === category.id 
                 ? 'border-primary bg-primary/10' 
@@ -42,13 +47,13 @@ export function ContestCategory() {
         <Button 
           type="button" 
           variant="outline" 
-          onClick={() => setCurrentStep(1)}
+          onClick={() => setCurrentStep(1)} // Go back to the previous step
         >
           Back
         </Button>
         <Button 
           type="submit" 
-          disabled={!formData.contestType}
+          disabled={!formData.contestType} // Disable if no category is selected
           className="px-8 py-4 text-lg"
         >
           Continue

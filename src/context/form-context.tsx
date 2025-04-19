@@ -5,6 +5,7 @@ import { createContext, useContext, useState, ReactNode } from 'react'
 type FormData = {
   contestName: string
   contestType: string
+  category: string
   description: string
   budget: number
   files: File[]
@@ -25,7 +26,8 @@ export function FormProvider({ children }: { children: ReactNode }) {
     contestName: '',
     contestType: '',
     description: '',
-    budget: 0,
+    category: '', // Default to an empty string
+    budget: 0, // Default to 0
     files: []
   })
 

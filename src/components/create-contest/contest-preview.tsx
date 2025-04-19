@@ -1,30 +1,23 @@
 // components/create-contest/contest-preview.tsx
 'use client'
 
-import { useFormContext } from '@/context/form-context'
 import { Button } from '@/components/ui/button'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { FileText, CircleDollarSign, Trophy, ArrowLeft } from 'lucide-react'
+import { useFormContext } from '@/context/form-context'
 
-export function ContestPreview() {
+interface ContestPreviewProps {
+  onSubmit: () => Promise<void>; // Add onSubmit prop
+  isSubmitting: boolean; // Add isSubmitting prop
+}
+
+export function ContestPreview({ onSubmit, isSubmitting }: ContestPreviewProps) {
   const { formData, setCurrentStep } = useFormContext()
-
-  type File = {
-    name: string
-  }
-
-  
-
-  const handleSubmit = async () => {
-    // Add your submission logic here
-    console.log('Submitting contest:', formData)
-    // await api.createContest(formData)
-  }
 
   return (
     <div className="space-y-8">
       <h2 className="text-2xl font-bold">Preview Your Contest</h2>
-      
+
       <div className="grid gap-6 md:grid-cols-2">
         {/* Contest Details Card */}
         <Card>
@@ -54,7 +47,7 @@ export function ContestPreview() {
               <CardTitle>Category</CardTitle>
             </CardHeader>
             <CardContent>
-             
+              <p>{formData.category || 'Not provided'}</p>
             </CardContent>
           </Card>
 
@@ -99,14 +92,12 @@ export function ContestPreview() {
           <ArrowLeft className="h-4 w-4" />
           Back
         </Button>
-        <Button 
-          onClick={handleSubmit}
+        <Button
+          onClick={onSubmit} // Use the onSubmit prop
+          disabled={isSubmitting} // Use the isSubmitting prop
           className="px-8 py-4 text-lg"
         >
-          Launch Contest (${
-            formData.budget ? 
-            (formData.budget + (formData.budget * 0.1)).toFixed(0) : '0'
-          })
+          {isSubmitting ? 'Launching...' : 'Launch Contest'}
         </Button>
       </div>
 

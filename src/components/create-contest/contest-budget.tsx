@@ -28,31 +28,37 @@ export function ContestBudget() {
             <span className="font-medium">Budget Range</span>
             <span>${formData.budget}</span>
           </div>
-          <Slider
-            defaultValue={[formData.budget || 200]}
-            min={100}
-            max={1000}
-            step={50}
-            onValueChange={(value) => setFormData({...formData, budget: value[0]})}
-          />
-        </div>
+    <Slider
+      defaultValue={[formData.budget || 200]}
+      min={100}
+      max={1000}
+      step={50}
+      onValueChange={(value) => {
+        setFormData({ ...formData, budget: value[0] });
+        console.log('Budget updated:', value[0]); // Debugging log
+      }}
+    />
+  </div>
 
         <div className="grid grid-cols-3 gap-4">
           {budgetRanges.map((range) => (
             <div
-              key={range.label}
-              onClick={() => setFormData({...formData, budget: range.min + 50})}
-              className={`p-4 border rounded-lg cursor-pointer ${
-                formData.budget >= range.min && formData.budget <= range.max
-                  ? 'border-primary bg-primary/10'
-                  : 'hover:bg-muted/50'
-              }`}
-            >
-              <h3 className="font-medium">{range.label}</h3>
-              <p className="text-sm text-muted-foreground">
-                ${range.min} - ${range.max}
-              </p>
-            </div>
+            key={range.label}
+            onClick={() => {
+              setFormData({ ...formData, budget: range.min + 50 });
+              console.log('Budget updated:', range.min + 50); // Debugging log
+            }}
+            className={`p-4 border rounded-lg cursor-pointer ${
+              formData.budget >= range.min && formData.budget <= range.max
+                ? 'border-primary bg-primary/10'
+                : 'hover:bg-muted/50'
+            }`}
+          >
+            <h3 className="font-medium">{range.label}</h3>
+            <p className="text-sm text-muted-foreground">
+              ${range.min} - ${range.max}
+            </p>
+          </div>
           ))}
         </div>
       </div>

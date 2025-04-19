@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { FcGoogle } from 'react-icons/fc'; // Google icon
+import { useRouter } from 'next/navigation'; // Import router for navigation
 
 export function AuthModal({
   isOpen,
@@ -32,6 +33,8 @@ export function AuthModal({
   const [activeTab, setActiveTab] = useState<'register' | 'login'>('register');
   const [googleUser, setGoogleUser] = useState<User | null>(null); // Store Google user for role selection
   const [step, setStep] = useState<'auth' | 'role-selection'>('auth'); // Track modal step
+  const [isSubmitting, setIsSubmitting] = useState(false); // Track submission state
+  const router = useRouter(); // Initialize router
 
   // Registration handler
   const handleRegister = async (e: React.FormEvent) => {
@@ -56,7 +59,9 @@ export function AuthModal({
       });
 
       console.log('Registration successful:', user);
-      if (onSuccess) onSuccess(); // Trigger success callback
+      if (onSuccess) {
+        await onSuccess(); // Trigger success callback
+      }
       closeModal(); // Close the modal
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
@@ -80,12 +85,13 @@ export function AuthModal({
     setError('');
 
     try {
-      // Log in the user with Firebase Authentication
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       console.log('Login successful:', userCredential.user);
-      if (onSuccess) onSuccess(); // Trigger success callback
+      if (onSuccess) {
+        await onSuccess(); // Trigger success callback
+      }
       closeModal(); // Close the modal
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      router.push('/payment'); // Redirect to payment page
     } catch (err: any) {
       setError(err.message || 'An unknown error occurred.');
     } finally {
@@ -113,7 +119,9 @@ export function AuthModal({
         setStep('role-selection'); // Move to role selection step
       } else {
         console.log('Google login successful:', user);
-        if (onSuccess) onSuccess(); // Trigger success callback
+        if (onSuccess) {
+          await onSuccess(); // Trigger success callback
+        }
         closeModal(); // Close the modal
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -134,13 +142,18 @@ export function AuthModal({
     try {
       // Store the selected role in Firestore
       await setDoc(doc(db, 'users', googleUser.uid), {
+        uid: googleUser.uid,
         email: googleUser.email,
         displayName: googleUser.displayName || '',
+        photoURL: googleUser.photoURL,
         role: role, // Store the selected role
+        createdAt: new Date(),
       });
 
       console.log('Role selection successful for Google user:', googleUser);
-      if (onSuccess) onSuccess(); // Trigger success callback
+      if (onSuccess) {
+        await onSuccess(); // Trigger success callback
+      }
       closeModal(); // Close the modal
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
