@@ -121,7 +121,7 @@ export default async function DiscoverPage() {
   ];
 
   return (
-    <div className="w-full py-8 px-4 mx-auto">
+    <div className="max-w-[1080] py-8 px-4 mx-auto">
       <div className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight">Discover</h1>
         <p className="text-muted-foreground mt-2">

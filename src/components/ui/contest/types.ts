@@ -10,7 +10,21 @@ export interface Contest {
   imageUrl: string;
   isFeatured: boolean;
   isGuaranteed: boolean;
+  round: string;
   status: "open" | "closed" | "voting";
+  designEntries: {
+    id: string;
+    designer: string;
+    imageUrl: string;
+    rating: number;
+    declined: boolean;
+    createdAt: string;
+  }[];
+  comments: {
+    id: string;
+    author: string;
+    text: string;
+  }[];
 }
 
 // Utility function to provide fallbacks
@@ -28,5 +42,8 @@ export function createContestWithDefaults(contest: Partial<Contest>): Contest {
     isFeatured: contest.isFeatured ?? false,
     isGuaranteed: contest.isGuaranteed ?? false,
     status: contest.status || "open",
+    round: contest.round || "Round 1",
+    designEntries: contest.designEntries || [],
+    comments: contest.comments || [],
   };
 }
